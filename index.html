@@ -479,6 +479,36 @@
     padding:36px 0; text-align:center; font-size:13px; font-weight:700;
     font-family:'Space Mono',monospace; background:var(--accent); border-top:3px solid var(--border);
   }
+  /* --- TAMBAHAN CSS UNTUK LOGO TOOLS --- */
+
+/* Pastikan gambar logo di dalam kotak ukurannya pas */
+.tool-logo {
+    width: 32px;           /* Ukuran logo */
+    height: 32px;
+    object-fit: contain;   /* Biar logo gak gepeng */
+    border-radius: 6px;    /* Sedikit lengkungan di sudut logo */
+}
+
+/* Styling untuk setiap item tools */
+.tool-item {
+    background: var(--card);
+    border: 3px solid var(--border);  /* Outline tebal ala brutalism */
+    padding: 12px 16px;
+    border-radius: 12px;              /* Kotak lebih membulat */
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 4px 4px 0px var(--border); /* Shadow tegas */
+    display: flex;
+    align-items: center;
+    gap: 14px;                        /* Jarak antara logo dan teks */
+    transition: transform 0.2s ease;  /* Efek hover */
+}
+
+.tool-item:hover {
+    transform: translate(-2px, -2px); /* Efek tombol keangkat pas dihover */
+    box-shadow: 6px 6px 0px var(--border);
+}
 </style>
 </head>
 <body>
@@ -601,6 +631,7 @@
   </section>
 
   <!-- SKILLS -->
+  <!-- TOOLS & SOFTWARE -->
   <section id="skill">
     <div class="wrap">
       <div class="section-head">
@@ -608,7 +639,8 @@
         <h2>Skill & Tools</h2>
       </div>
       
-      <div class="skill-cloud" style="margin-bottom: 36px;">
+      <!-- Skill Pills (Gaya Lama tapi bersih) -->
+      <div class="skill-cloud" style="margin-bottom: 48px;">
         <span class="skill-pill core">Digital Marketing</span>
         <span class="skill-pill core">Content Strategy</span>
         <span class="skill-pill core">Video Editing</span>
@@ -620,44 +652,52 @@
         <span class="skill-pill">Teamwork</span>
       </div>
 
-      <div style="background: var(--card); border: 3px solid var(--border); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow-lg);">
-        <div style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; color: var(--ink); display: flex; align-items: center; gap: 8px;">
-          <span>⚡</span> Tools & Software Sehari-hari:
+      <!-- Tools Box (Gaya Baru dengan Logo Asli) -->
+      <div style="background: var(--bg); border: 4px solid var(--border); border-radius: 20px; padding: 40px; box-shadow: 8px 8px 0px var(--border);">
+        <div style="font-family: 'Space Mono', monospace; font-size: 14px; font-weight: 800; text-transform: uppercase; margin-bottom: 30px; color: var(--ink); display: flex; align-items: center; gap: 10px;">
+          <span style="color: var(--accent);">⚡</span> TOOLS & SOFTWARE SEHARI-HARI:
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
           
-          <div style="background: var(--bg); border: 2px solid var(--border); padding: 10px 14px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
-            <div style="width: 28px; height: 28px; background: #000; color: #FFF; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; border: 1.5px solid var(--border);">CC</div>
+          <!-- CapCut -->
+          <div class="tool-item">
+            <img src="https://img.icons8.com/?size=96&id=118638&format=png" alt="CapCut Logo" class="tool-logo">
             <span>CapCut</span>
           </div>
 
-          <div style="background: var(--bg); border: 2px solid var(--border); padding: 10px 14px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
-            <div style="width: 28px; height: 28px; background: #00C4CC; color: #FFF; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; border: 1.5px solid var(--border);">Ca</div>
+          <!-- Canva -->
+          <div class="tool-item">
+            <img src="https://img.icons8.com/?size=96&id=vf34P3V7VfR5&format=png" alt="Canva Logo" class="tool-logo">
             <span>Canva</span>
           </div>
 
-          <div style="background: var(--bg); border: 2px solid var(--border); padding: 10px 14px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
-            <div style="width: 28px; height: 28px; background: #F24E1E; color: #FFF; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; border: 1.5px solid var(--border);">Fg</div>
+          <!-- Figma -->
+          <div class="tool-item">
+            <img src="https://img.icons8.com/?size=96&id=zfPcvLOq8XZC&format=png" alt="Figma Logo" class="tool-logo">
             <span>Figma</span>
           </div>
 
-          <div style="background: var(--bg); border: 2px solid var(--border); padding: 10px 14px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
-            <div style="width: 28px; height: 28px; background: #000; color: #FFF; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; border: 1.5px solid var(--border);">N</div>
+          <!-- Notion -->
+          <div class="tool-item">
+            <img src="https://img.icons8.com/?size=96&id=94226&format=png" alt="Notion Logo" class="tool-logo">
             <span>Notion</span>
           </div>
 
-          <div style="background: var(--bg); border: 2px solid var(--border); padding: 10px 14px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
-            <div style="width: 28px; height: 28px; background: #0066FF; color: #FFF; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; border: 1.5px solid var(--border);">VS</div>
+          <!-- VS Code -->
+          <div class="tool-item">
+            <img src="https://img.icons8.com/?size=96&id=0dLfbrxJ95yI&format=png" alt="VS Code Logo" class="tool-logo">
             <span>VS Code</span>
           </div>
 
-          <div style="background: var(--bg); border: 2px solid var(--border); padding: 10px 14px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
-            <div style="width: 28px; height: 28px; background: #00758F; color: #FFF; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; border: 1.5px solid var(--border);">SQL</div>
+          <!-- MySQL -->
+          <div class="tool-item">
+            <img src="https://img.icons8.com/?size=96&id=UFXupNuzI9NQ&format=png" alt="MySQL Logo" class="tool-logo">
             <span>MySQL</span>
           </div>
 
-          <div style="background: var(--bg); border: 2px solid var(--border); padding: 10px 14px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
-            <div style="width: 28px; height: 28px; background: #FE2C55; color: #FFF; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; border: 1.5px solid var(--border);">TK</div>
+          <!-- TikTok Studio -->
+          <div class="tool-item">
+            <img src="https://img.icons8.com/?size=96&id=118637&format=png" alt="TikTok Studio Logo" class="tool-logo">
             <span>TikTok Studio</span>
           </div>
 
