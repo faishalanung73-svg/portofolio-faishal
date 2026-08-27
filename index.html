@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faishal Anung — Content Creator & Digital Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,700;0,800;1,700;1,800&family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FFFDF5;
+    --card: #FFFFFF;
+    --ink: #0D0D0D;
+    --accent: #CCFF00;
+    --accent-pink: #FF3366;
+    --accent-blue: #0066FF;
+    --border: #0D0D0D;
+    --shadow: 4px 4px 0px #0D0D0D;
+    --shadow-lg: 6px 6px 0px #0D0D0D;
+    --radius: 12px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Space Grotesk', sans-serif;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--accent);color:var(--ink);}
+  a{color:inherit;text-decoration:none;}
+  .display{font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; text-transform:uppercase;}
+  .mono{font-family:'Space Mono', monospace;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:var(--bg);
+    border-bottom:3px solid var(--border);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    max-width:1140px; margin:0 auto; padding:18px 24px;
+  }
+  .logo{
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-weight:800; font-size:22px;
+    background:var(--accent);
+    padding:4px 12px; border:2px solid var(--border); border-radius:6px;
+    box-shadow: 2px 2px 0px var(--border);
+  }
+  .nav-links{display:flex; gap:28px; font-size:14px; font-weight:700; font-family:'Space Mono', monospace;}
+  .nav-links a{transition:color .15s;}
+  .nav-links a:hover{color:var(--accent-pink);}
+  .nav-cta{
+    background:var(--accent-pink); color:#FFF; padding:10px 20px; border-radius:8px;
+    font-weight:700; font-size:14px; font-family:'Space Mono', monospace;
+    border:2px solid var(--border); box-shadow:var(--shadow);
+    transition:all .15s ease;
+  }
+  .nav-cta:hover{transform:translate(-2px, -2px); box-shadow: 6px 6px 0px var(--border);}
+  .burger{display:none; background:none; border:none; color:var(--ink); font-size:26px; cursor:pointer;}
+
+  @media (max-width:768px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:170px 0 90px;
+    border-bottom:3px solid var(--border);
+    background: radial-gradient(circle at 90% 20%, rgba(204, 255, 0, 0.25) 0%, transparent 40%);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.2fr 0.8fr; gap:50px; align-items:center;
+  }
+  .eyebrow{
+    display:inline-block;
+    font-family:'Space Mono', monospace; font-size:13px; font-weight:700;
+    color:var(--ink); background:var(--accent); padding:6px 14px; border-radius:6px;
+    border:2px solid var(--border); box-shadow:2px 2px 0px var(--border);
+    text-transform:uppercase; margin-bottom:24px;
+  }
+  h1.hero-name{
+    font-size:clamp(52px, 8.5vw, 96px);
+    line-height:0.92;
+    letter-spacing:-0.03em;
+    margin-bottom:24px;
+  }
+  h1.hero-name span{
+    background:var(--accent-pink); color:#FFF; padding:0 10px; display:inline-block;
+    border:3px solid var(--border); box-shadow:4px 4px 0px var(--border);
+    transform:rotate(-1deg); margin-top:6px;
+  }
+  .hero-sub{
+    max-width:480px; font-size:17px; line-height:1.6; font-weight:500; margin-bottom:36px;
+  }
+  .hero-actions{display:flex; gap:16px; align-items:center; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--accent); color:var(--ink); padding:14px 28px; border-radius:8px;
+    font-weight:700; font-size:15px; font-family:'Space Mono', monospace;
+    border:2px solid var(--border); box-shadow:var(--shadow);
+    transition:all .15s ease; display:inline-block;
+  }
+  .btn-primary:hover{transform:translate(-2px,-2px); box-shadow:6px 6px 0px var(--border);}
+  .btn-ghost{
+    background:var(--card); color:var(--ink); padding:14px 28px; border-radius:8px;
+    font-weight:700; font-size:15px; font-family:'Space Mono', monospace;
+    border:2px solid var(--border); box-shadow:var(--shadow);
+    transition:all .15s ease; display:inline-block;
+  }
+  .btn-ghost:hover{transform:translate(-2px,-2px); box-shadow:6px 6px 0px var(--border); background:#FFF;}
+
+  .hero-photo-wrap{position:relative;}
+  .hero-photo{
+    width:100%; aspect-ratio:1/1;
+    object-fit:cover; border-radius:var(--radius);
+    border:3px solid var(--border); box-shadow:var(--shadow-lg);
+    background:var(--card);
+  }
+  .hero-badge-float{
+    position:absolute; bottom:-20px; left:-20px;
+    background:var(--accent-blue); color:#FFF; padding:10px 18px;
+    border:2px solid var(--border); border-radius:8px; box-shadow:var(--shadow);
+    font-family:'Space Mono', monospace; font-size:12px; font-weight:700;
+    transform:rotate(-3deg);
+  }
+
+  @media (max-width:768px){
+    .hero-grid{grid-template-columns:1fr; gap:40px;}
+    .hero-badge-float{left:10px; bottom:-10px;}
+  }
+
+  /* ---------- TICKER ---------- */
+  .ticker-outer{
+    border-bottom:3px solid var(--border);
+    background:var(--accent); overflow:hidden; padding:16px 0;
+  }
+  .ticker-track{display:flex; width:max-content; animation:scroll 22s linear infinite;}
+  .ticker-track span{
+    font-family:'Space Mono', monospace; font-size:13px; font-weight:700;
+    padding:0 24px; white-space:nowrap; color:var(--ink); display:flex; align-items:center; gap:24px;
+    text-transform:uppercase;
+  }
+  .ticker-track span b{background:var(--ink); color:var(--accent); padding:2px 8px; border-radius:4px;}
+  @keyframes scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{padding:110px 0; border-bottom:3px solid var(--border);}
+  .section-head{margin-bottom:50px;}
+  .section-label{
+    font-family:'Space Mono', monospace; font-size:12px; font-weight:700; color:var(--ink);
+    text-transform:uppercase; background:var(--accent-pink); color:#FFF; padding:4px 10px; border-radius:4px;
+    border:2px solid var(--border); box-shadow:2px 2px 0px var(--border); display:inline-block; margin-bottom:14px;
+  }
+  h2{
+    font-family:'Plus Jakarta Sans', sans-serif; text-transform:uppercase;
+    font-size:clamp(32px, 4.5vw, 48px); line-height:1.05; letter-spacing:-0.02em;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:1fr 1.2fr; gap:50px; align-items:start;}
+  .about-text p{font-size:17px; line-height:1.7; font-weight:500; margin-bottom:20px;}
+  .about-text p strong{background:var(--accent); padding:0 4px; border-radius:2px;}
+  .about-facts{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:36px;}
+  .fact{background:var(--card); border:2px solid var(--border); border-radius:8px; padding:16px; box-shadow:var(--shadow);}
+  .fact .k{font-family:'Space Mono',monospace; font-size:11px; text-transform:uppercase; color:#666;}
+  .fact .v{font-size:14px; font-weight:700; margin-top:4px;}
+
+  @media (max-width:768px){ .about-grid{grid-template-columns:1fr;} }
+
+  /* ---------- LOGO CARD (TENTANG) ---------- */
+  .logo-card {
+    background: var(--card);
+    border: 3px solid var(--border);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    height: 100%;
+    min-height: 400px;
+    background: radial-gradient(circle at 50% 30%, rgba(204, 255, 0, 0.15) 0%, transparent 70%);
+  }
+  .brand-logo-img {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+    border-radius: 16px;
+    border: 3px solid var(--border);
+    padding: 12px;
+    background: #FFF;
+    box-shadow: var(--shadow);
+  }
+  .logo-caption {
+    font-family: 'Space Mono', monospace;
+    font-size: 15px;
+    font-weight: 700;
+    background: var(--accent);
+    color: var(--ink);
+    padding: 8px 18px;
+    border-radius: 6px;
+    border: 2px solid var(--border);
+    box-shadow: 2px 2px 0px var(--border);
+    text-transform: uppercase;
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .exp-main{
+    background:var(--card); border:3px solid var(--border); border-radius:var(--radius);
+    padding:40px; margin-bottom:24px; box-shadow:var(--shadow-lg);
+  }
+  .exp-top{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:24px;}
+  .exp-role{font-family:'Plus Jakarta Sans', sans-serif; font-size:24px; font-weight:800; text-transform:uppercase;}
+  .exp-org{color:var(--accent-blue); font-family:'Space Mono', monospace; font-size:14px; font-weight:700; margin-top:4px;}
+  .exp-time{
+    font-family:'Space Mono', monospace; font-size:12px; color:var(--ink); background:var(--accent);
+    padding:6px 14px; border-radius:6px; border:2px solid var(--border); box-shadow:2px 2px 0px var(--border); font-weight:700;
+  }
+  .exp-list{list-style:none; display:flex; flex-direction:column; gap:12px;}
+  .exp-list li{
+    padding-left:24px; position:relative; font-size:15px; font-weight:500; line-height:1.6;
+  }
+  .exp-list li::before{content:"➔"; position:absolute; left:0; color:var(--accent-pink); font-weight:700;}
+
+  .side-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .side-card{
+    background:var(--card); border:3px solid var(--border); border-radius:var(--radius); padding:28px;
+    box-shadow:var(--shadow); transition:transform .15s ease;
+  }
+  .side-card:hover{transform:translate(-3px,-3px); box-shadow:6px 6px 0px var(--border);}
+  .side-card .tag{
+    font-family:'Space Mono',monospace; font-size:11px; text-transform:uppercase; font-weight:700;
+    background:var(--accent); padding:3px 8px; border-radius:4px; border:1.5px solid var(--border);
+    display:inline-block; margin-bottom:12px;
+  }
+  .side-card h3{font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:800; text-transform:uppercase; margin-bottom:10px;}
+  .side-card p{font-size:14px; font-weight:500; line-height:1.6; color:#444;}
+
+  @media (max-width:768px){ .side-grid{grid-template-columns:1fr;} }
+
+  /* ---------- SKILLS ---------- */
+  .skill-cloud{display:flex; flex-wrap:wrap; gap:12px;}
+  .skill-pill{
+    border:2px solid var(--border); background:var(--card); border-radius:8px; padding:12px 20px;
+    font-size:14px; font-family:'Space Mono', monospace; font-weight:700; box-shadow:var(--shadow);
+    transition:all .15s ease;
+  }
+  .skill-pill:hover{transform:translate(-2px,-2px); box-shadow:4px 4px 0px var(--border); background:var(--accent);}
+  .skill-pill.core{background:var(--accent-pink); color:#FFF;}
+  .skill-pill.core:hover{background:#ff1a4e; color:#FFF;}
+
+  /* ---------- PORTFOLIO STYLING (PORTRAIT 9:16 WITH FORCED PORTRAIT FULLSCREEN) ---------- */
+  .karya-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .karya-card {
+    background: var(--card);
+    border: 3px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    position: relative;
+    aspect-ratio: 9/16;
+    height: 420px;
+    transition: transform .15s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .karya-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0px var(--border);
+  }
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    background: #000;
+  }
+  
+  /* CSS Biar video fullscreen otomatis menyesuaikan jadi portrait (objek tetap pas di tengah layar hitam) */
+  video:fullscreen {
+    object-fit: contain;
+    background-color: #000;
+  }
+  video:-webkit-full-screen {
+    object-fit: contain;
+    background-color: #000;
+  }
+
+  .overlay-top {
+    position: absolute;
+    top: 12px; left: 12px; right: 12px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .overlay-top .views {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    background: var(--accent);
+    color: var(--ink);
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1.5px solid var(--border);
+    display: inline-block;
+    text-transform: uppercase;
+  }
+  .overlay-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(13,13,13,0.9), transparent);
+    padding: 30px 16px 16px;
+    color: #FFF;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .overlay-bottom .cap {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  @media (max-width: 1024px) {
+    .karya-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .karya-grid { grid-template-columns: 1fr; }
+  }
+
+  .analytics-showcase-box {
+    background: var(--card);
+    border: 3px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 24px;
+  }
+  .analytics-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .analytics-text-side h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .analytics-text-side p {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 24px;
+  }
+  .analytics-bullet-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .analytics-bullet-list li {
+    padding-left: 20px;
+    position: relative;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .analytics-bullet-list li::before {
+    content: "■";
+    position: absolute;
+    left: 0;
+    color: var(--accent-pink);
+  }
+
+  .analytics-img-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    background: #F4F3ED;
+    padding: 16px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+  }
+  .analytic-img-card {
+    background: #FFF;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 9/16;
+  }
+  .analytic-img-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 900px) {
+    .analytics-grid-layout { grid-template-columns: 1fr; }
+  }
+
+  .karya-web{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:0;
+    border:3px solid var(--border); border-radius:var(--radius); overflow:hidden;
+    background:var(--card); box-shadow:var(--shadow-lg);
+  }
+  .karya-web .info{padding:44px; display:flex; flex-direction:column; justify-content:center;}
+  .karya-web .tag{font-family:'Space Mono',monospace; background:var(--accent-blue); color:#FFF; font-size:11px; font-weight:700; text-transform:uppercase; padding:4px 10px; border-radius:4px; border:2px solid var(--border); width:fit-content; margin-bottom:14px;}
+  .karya-web h3{font-family:'Plus Jakarta Sans',sans-serif; font-size:26px; font-weight:800; text-transform:uppercase; margin-bottom:12px;}
+  .karya-web p{font-size:15px; font-weight:500; line-height:1.6; margin-bottom:24px; color:#444;}
+  .karya-web .visual{
+    background:var(--accent); border-left:3px solid var(--border);
+    display:flex; align-items:center; justify-content:center; padding:40px;
+    font-family:'Space Mono',monospace; font-size:14px; font-weight:700; color:var(--ink);
+    text-transform:uppercase;
+  }
+  .link-arrow{display:inline-flex; align-items:center; gap:8px; font-weight:700; font-family:'Space Mono',monospace; font-size:14px; background:var(--ink); color:var(--accent); padding:10px 18px; border-radius:6px; border:2px solid var(--border); width:fit-content; box-shadow:2px 2px 0px var(--border); transition:all .15s;}
+  .link-arrow:hover{transform:translate(-2px,-2px); box-shadow:4px 4px 0px var(--border);}
+  .karya-note{margin-top:16px; font-family:'Space Mono',monospace; font-size:12px; color:#555; font-weight:700;}
+
+  @media (max-width:900px){
+    .karya-web{grid-template-columns:1fr;}
+    .karya-web .visual{border-left:none; border-top:3px solid var(--border);}
+  }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-item{
+    display:grid; grid-template-columns:160px 1fr; gap:24px; padding:28px 0;
+    border-bottom:2px solid var(--border);
+  }
+  .edu-item:first-child{padding-top:0;}
+  .edu-item:last-child{border-bottom:none; padding-bottom:0;}
+  .edu-year{font-family:'Space Mono',monospace; color:var(--ink); font-size:13px; font-weight:700; background:var(--accent); padding:4px 10px; border-radius:4px; border:2px solid var(--border); height:fit-content; width:fit-content;}
+  .edu-item h3{font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:800; text-transform:uppercase;}
+  .edu-item p{font-size:15px; font-weight:500; margin-top:4px; color:#444;}
+
+  @media (max-width:768px){
+    .edu-item{grid-template-columns:1fr; gap:10px;}
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-card{
+    background:var(--card);
+    border:3px solid var(--border); border-radius:var(--radius); padding:50px;
+    display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
+    box-shadow:var(--shadow-lg);
+  }
+  .contact-links{display:flex; flex-direction:column; gap:14px;}
+  .contact-row{
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--bg); border:2px solid var(--border); border-radius:8px; padding:18px 22px;
+    box-shadow:var(--shadow); transition:all .15s ease;
+  }
+  .contact-row:hover{transform:translate(-2px,-2px); box-shadow:4px 4px 0px var(--border); background:#FFF;}
+  .contact-row .k{font-family:'Space Mono',monospace; font-size:11px; text-transform:uppercase; color:#666; font-weight:700;}
+  .contact-row .v{font-weight:700; font-size:15px; margin-top:2px;}
+  .contact-row .go{font-family:'Space Mono',monospace; font-weight:700; font-size:16px; background:var(--accent); padding:4px 10px; border-radius:4px; border:1.5px solid var(--border);}
+
+  @media (max-width:768px){ .contact-card{grid-template-columns:1fr; padding:32px 20px;} }
+
+  footer{
+    padding:36px 0; text-align:center; font-size:13px; font-weight:700;
+    font-family:'Space Mono',monospace; background:var(--accent); border-top:3px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">FA.</div>
+    <div class="nav-links">
+      <a href="#tentang">Tentang</a>
+      <a href="#pengalaman">Pengalaman</a>
+      <a href="#karya">Karya</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+    <a href="#kontak" class="nav-cta">Hubungi Saya</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">⚡ Portofolio Digital 2026</span>
+          <h1 class="hero-name display">
+            Faishal<br><span>Anung</span>
+          </h1>
+          <p class="hero-sub">Content Creator & Digital Marketing yang mengubah riset tren audiens jadi konten berdampak — didukung kemampuan teknis buat bangun platform sendiri.</p>
+          <div class="hero-actions">
+            <a href="#karya" class="btn-primary">Lihat Karya ➔</a>
+            <a href="#kontak" class="btn-ghost">Hubungi Saya</a>
+          </div>
+        </div>
+        <div>
+          <div class="hero-photo-wrap">
+            <img src="assets/profile.jpeg" alt="Foto Faishal Anung" class="hero-photo">
+            <div class="hero-badge-float">ANUNGZZZZ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-outer">
+    <div class="ticker-track">
+      <span><b>17.2K</b> Followers ⚡ <b>3.5JT</b> Likes ⚡ Digital Marketing ⚡ Content Strategy ⚡ Scriptwriting ⚡ Video Editing</span>
+      <span><b>17.2K</b> Followers ⚡ <b>3.5JT</b> Likes ⚡ Digital Marketing ⚡ Content Strategy ⚡ Scriptwriting ⚡ Video Editing</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="tentang">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-label">Tentang Saya</span>
+        <h2>Profil</h2>
+      </div>
+      <div class="about-grid">
+        <!-- Logo Card -->
+        <div class="brand-logo-box">
+          <div class="logo-card">
+            <img src="assets/logo.jpeg" alt="Logo Thinkeverythink1" class="brand-logo-img">
+            <div class="logo-caption">MEDIA SOSIAL</div>
+          </div>
+        </div>
+
+        <!-- Profil Text -->
+        <div class="about-text">
+          <p>Saya mahasiswa <strong>Bisnis Digital semester 5</strong> di Universitas Muhammadiyah Purwokerto yang aktif mendalami produksi konten, penulisan naskah, dan strategi pertumbuhan platform media sosial.</p>
+          <p>Pendekatan kerja saya berbasis riset data dan pemahaman tren audiens, bukan sekadar mengikuti format viral yang instan.</p>
+          <p>Selain fokus di dunia konten, saya memiliki kemampuan teknis dasar untuk merancang dan mengelola platform digital secara mandiri.</p>
+          <div class="about-facts">
+            <div class="fact"><div class="k">Domisili</div><div class="v">Purwokerto Timur, Jateng</div></div>
+            <div class="fact"><div class="k">Pendidikan</div><div class="v">S1 Bisnis Digital (Semester 5)</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="pengalaman">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-label">Pengalaman</span>
+        <h2>Riwayat Pengalaman</h2>
+      </div>
+
+      <div class="exp-main">
+        <div class="exp-top">
+          <div>
+            <div class="exp-role">Content Creator & Marketing</div>
+            <div class="exp-org">TikTok — @thinkeverythink1</div>
+          </div>
+          <div class="exp-time">2025 — Sekarang</div>
+        </div>
+        <ul class="exp-list">
+          <li>Mengelola akun edukasi musik dengan pertumbuhan organik mencapai 17.2K followers.</li>
+          <li>Meriset dan memproduksi konten yang menghasilkan akumulasi 3,5 juta likes.</li>
+          <li>Menerapkan strategi optimasi konten berdasarkan analisis algoritma harian.</li>
+          <li>Melakukan riset mendalam dan menulis naskah storytelling untuk topik kreatif yang relevan dengan tren audiens.</li>
+          <li>Mengelola akun media sosial secara aktif untuk membangun interaksi dan memperluas jangkauan audiens.</li>
+        </ul>
+      </div>
+
+      <div class="side-grid">
+        <div class="side-card">
+          <span class="tag">Side Project</span>
+          <h3>Web Inside Football</h3>
+          <p>Mengembangkan identitas brand dan mengelola website insidefootballfc.com dengan konsep desain minimalis untuk meningkatkan user experience.</p>
+        </div>
+        <div class="side-card">
+          <span class="tag">Proyek Akademik</span>
+          <h3>Web Developer</h3>
+          <p>Membangun sistem manajemen data inventaris berbasis PHP dan MySQL (CRUD) sebagai bagian dari proyek perkuliahan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skill">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-label">Keahlian</span>
+        <h2>Skill</h2>
+      </div>
+      <div class="skill-cloud">
+        <span class="skill-pill core">Digital Marketing</span>
+        <span class="skill-pill core">Content Strategy</span>
+        <span class="skill-pill core">Video Editing</span>
+        <span class="skill-pill core">Scriptwriting</span>
+        <span class="skill-pill">SEO Analysis</span>
+        <span class="skill-pill">Visual Branding</span>
+        <span class="skill-pill">Data Management</span>
+        <span class="skill-pill">Web Dev (PHP)</span>
+        <span class="skill-pill">Teamwork</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="karya">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-label">Portofolio</span>
+        <h2>Karya & Proyek</h2>
+      </div>
+
+      <div class="karya-grid">
+        <div class="karya-card">
+          <div class="overlay-top">
+            <div class="views">128K views</div>
+          </div>
+          <video src="assets/vid1.mp4" class="card-img" controls playsinline preload="metadata"></video>
+          <div class="overlay-bottom">
+            <div class="cap">lagu ini adalah harapan yang dinyanyikan bersama. 🏟️🎵</div>
+          </div>
+        </div>
+
+        <div class="karya-card">
+          <div class="overlay-top">
+            <div class="views">518K views</div>
+          </div>
+          <video src="assets/vid2.mp4" class="card-img" controls playsinline preload="metadata"></video>
+          <div class="overlay-bottom">
+            <div class="cap">Make a better place. For you and for me. 🕊️</div>
+          </div>
+        </div>
+
+        <div class="karya-card">
+          <div class="overlay-top">
+            <div class="views">1,1JT views</div>
+          </div>
+          <video src="assets/vid3.mp4" class="card-img" controls playsinline preload="metadata"></video>
+          <div class="overlay-bottom">
+            <div class="cap">BACKSTREET BOYS ternyata bukan nama random 😭</div>
+          </div>
+        </div>
+
+        <div class="karya-card">
+          <div class="overlay-top">
+            <div class="views">198K views</div>
+          </div>
+          <video src="assets/vid4.mp4" class="card-img" controls playsinline preload="metadata"></video>
+          <div class="overlay-bottom">
+            <div class="cap">Kadang nama paling ikonik... justru datang dari hal yang paling sederhana. 🎶</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="analytics-showcase-box">
+        <div class="analytics-grid-layout">
+          <div class="analytics-text-side">
+            <h3>Hasil & Performa TikTok</h3>
+            <p>Menghasilkan konten video pendek dengan gaya informatif dan riset mendalam. Konten berhasil menarik audiens baru, meningkatkan views secara organik, serta mendorong interaksi tinggi.</p>
+            <ul class="analytics-bullet-list">
+              <li>Akumulasi likes menembus 3,5 Juta+ dari berbagai video edukasi musik.</li>
+              <li>Pertumbuhan followers organik mencapai 17.2K+ pengikut dalam beberapa bulan.</li>
+              <li>Konsisten menjangkau ribuan audiens dengan topik yang relevan dan up-to-date.</li>
+            </ul>
+          </div>
+
+          <div class="analytics-img-grid">
+            <div class="analytic-img-card"><img src="assets/analisis1.jpeg" alt="Analisis 1"></div>
+            <div class="analytic-img-card"><img src="assets/analisis2.jpeg" alt="Analisis 2"></div>
+            <div class="analytic-img-card"><img src="assets/analisis3.jpeg" alt="Analisis 3"></div>
+            <div class="analytic-img-card"><img src="assets/analisis4.jpeg" alt="Analisis 4"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="karya-web">
+        <div class="info">
+          <span class="tag">Web Project</span>
+          <h3>Inside Football Community</h3>
+          <p>Website komunitas pecinta sepak bola yang saya bangun dan kelola sendiri — mulai dari identitas visual, struktur layout, hingga manajemen konten.</p>
+          <a href="https://insidefootballfc.com" target="_blank" rel="noopener" class="link-arrow">insidefootballfc.com ➔</a>
+        </div>
+        <div class="visual">
+          <span>// insidefootballfc.com</span>
+        </div>
+      </div>
+      
+      
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="pendidikan">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-label">Pendidikan</span>
+        <h2>Latar Belakang Akademik</h2>
+      </div>
+      <div>
+        <div class="edu-item">
+          <div class="edu-year">2024 — Sekarang</div>
+          <div>
+            <h3>Universitas Muhammadiyah Purwokerto</h3>
+            <p>S1 Bisnis Digital, Fakultas Ekonomi dan Bisnis — Semester 5</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year">2021 — 2024</div>
+          <div>
+            <h3>SMA ITUS Jalaksana</h3>
+            <p>Jurusan IPA</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="kontak">
+    <div class="wrap">
+      <div class="contact-card">
+        <div>
+          <span class="section-label">Kontak</span>
+          <h2>Mari Kolaborasi</h2>
+          <p style="font-size:15px; font-weight:500; margin-top:14px; line-height:1.6; color:#444;">Terbuka untuk kerja sama konten, campaign digital marketing, atau proyek kreatif lainnya.</p>
+        </div>
+        <div class="contact-links">
+          <a class="contact-row" href="https://wa.me/6282328257523" target="_blank" rel="noopener">
+            <div><div class="k">WhatsApp</div><div class="v">0823-2825-7523</div></div>
+            <span class="go">➔</span>
+          </a>
+          <a class="contact-row" href="mailto:faishalanung73@gmail.com">
+            <div><div class="k">Email</div><div class="v">faishalanung73@gmail.com</div></div>
+            <span class="go">➔</span>
+          </a>
+          <a class="contact-row" href="https://www.tiktok.com/@thinkeverythink1" target="_blank" rel="noopener">
+            <div><div class="k">TikTok</div><div class="v">@thinkeverythink1</div></div>
+            <span class="go">➔</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2026 FAISHAL ANUNG
+</footer>
+
+<!-- Script khusus untuk mengunci orientasi video agar tetap Portrait (tegak) saat Fullscreen -->
+<script>
+  document.querySelectorAll('video').forEach(video => {
+    video.addEventListener('fullscreenchange', () => {
+      if (document.fullscreenElement === video) {
+        if (screen.orientation && screen.orientation.lock) {
+          screen.orientation.lock('portrait').catch(() => {});
+        }
+      } else {
+        if (screen.orientation && screen.orientation.unlock) {
+          screen.orientation.unlock();
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
