@@ -540,76 +540,41 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50px;
-    flex-wrap: wrap;
+    gap: 40px;
+    flex-wrap: nowrap; /* KUNCI: Paksa biar gak turun ke bawah */
 }
 
-/* Container Dua HP Berdampingan */
 .phones-wrapper {
     display: flex;
-    gap: 25px;
+    gap: 15px;
     align-items: center;
+    flex-shrink: 0;
 }
 
-/* Style Bodi iPhone 16 (Dynamic Island & Bezel Tipis) */
+/* Perkecil dikit ukurannya jadi pas buat web (lebar 210px) */
 .phone-mockup {
-    width: 250px;
+    width: 210px;
     background: #111;
-    border-radius: 42px;
-    padding: 12px;
-    box-shadow: 8px 8px 0px #000;
+    border-radius: 36px;
+    padding: 10px;
+    box-shadow: 6px 6px 0px #000;
     border: 3px solid #000;
     position: relative;
     transform: rotate(-2deg);
-    transition: transform 0.3s ease;
 }
 
 .phone-mockup.right {
     transform: rotate(3deg);
-    margin-top: 40px; /* Efek staggered / naik-turun dikit biar dinamis */
+    margin-top: 30px;
 }
 
-.phone-mockup:hover, .phone-mockup.right:hover {
-    transform: rotate(0deg) scale(1.02);
-    z-index: 10;
-}
-
-/* Layar HP */
-.phone-screen {
-    width: 100%;
-    background: #fff;
-    border-radius: 32px;
-    overflow: hidden;
-    aspect-ratio: 9/19.5;
-    position: relative;
-}
-
-/* Dynamic Island Khas iPhone 16 */
-.dynamic-island {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 85px;
-    height: 24px;
-    background: #000;
-    border-radius: 20px;
-    z-index: 20;
-}
-
-.phone-screen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Kotak Catatan / Notepad di Samping */
 .notepad {
     background: #fff;
     border: 3px solid #000;
-    box-shadow: 10px 10px 0px #000;
-    padding: 35px;
-    max-width: 520px;
+    box-shadow: 8px 8px 0px #000;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
     border-radius: 8px;
     position: relative;
 }
