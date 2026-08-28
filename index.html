@@ -511,23 +511,7 @@
     box-shadow: 6px 6px 0px var(--border);
 }
 
-  /* Container Utama Section Karya / Projek */
-.portfolio-mockup-section {
-    padding: 60px 20px;
-    background-color: #fdfbf7; /* Warna background ala kertas/notepad */
-    font-family: 'Courier New', Courier, monospace; /* Atau font andalan web lu */
-}
-
-.mockup-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-}
-
+/* Container Utama Section Karya / Projek */
 .portfolio-mockup-section {
     padding: 60px 20px;
     background-color: #fdfbf7;
@@ -541,7 +525,7 @@
     align-items: center;
     justify-content: center;
     gap: 40px;
-    flex-wrap: nowrap; /* KUNCI: Paksa biar gak turun ke bawah */
+    flex-wrap: nowrap; /* Paksa sejajar ke samping */
 }
 
 .phones-wrapper {
@@ -551,7 +535,7 @@
     flex-shrink: 0;
 }
 
-/* Perkecil dikit ukurannya jadi pas buat web (lebar 210px) */
+/* Style Bodi iPhone 16 */
 .phone-mockup {
     width: 210px;
     background: #111;
@@ -561,6 +545,7 @@
     border: 3px solid #000;
     position: relative;
     transform: rotate(-2deg);
+    transition: transform 0.3s ease;
 }
 
 .phone-mockup.right {
@@ -568,6 +553,40 @@
     margin-top: 30px;
 }
 
+.phone-mockup:hover, .phone-mockup.right:hover {
+    transform: rotate(0deg) scale(1.02);
+    z-index: 10;
+}
+
+/* Bagian Layar & Dynamic Island */
+.phone-screen {
+    width: 100%;
+    background: #fff;
+    border-radius: 28px;
+    overflow: hidden;
+    aspect-ratio: 9/19.5;
+    position: relative;
+}
+
+.dynamic-island {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75px;
+    height: 22px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 20;
+}
+
+.phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Kotak Catatan / Notepad di Kanan */
 .notepad {
     background: #fff;
     border: 3px solid #000;
@@ -579,7 +598,7 @@
     position: relative;
 }
 
-/* Efek Spiral Binder di Samping / Atas Notepad */
+/* Efek Spiral Binder */
 .notepad::before {
     content: "";
     position: absolute;
@@ -613,10 +632,10 @@
     color: #000;
 }
 
-/* Responsif untuk layar HP kecil */
+/* Responsif untuk layar HP kecil / tablet */
 @media (max-width: 900px) {
     .mockup-container {
-        flex-direction: column;
+        flex-wrap: wrap; /* Kalau di HP, otomatis turun ke bawah biar rapi */
     }
     .phone-mockup.right {
         margin-top: 0;
