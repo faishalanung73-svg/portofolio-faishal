@@ -337,11 +337,25 @@
   }
 
   @media (max-width: 1024px) {
-    .karya-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 600px) {
-    .karya-grid { grid-template-columns: 1fr; }
-  }
+   .karya-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Pastikan selalu 4 kolom ke samping */
+    gap: 25px; /* Jarak antar kartu video */
+    margin-top: 20px;
+}
+
+/* Responsif buat layar tablet atau HP supaya otomatis turun barisnya dengan rapi */
+@media (max-width: 1024px) {
+    .karya-grid {
+        grid-template-columns: repeat(2, 1fr); /* Jadi 2 kolom kalau di layar agak kecil */
+    }
+}
+
+@media (max-width: 600px) {
+    .karya-grid {
+        grid-template-columns: 1fr; /* Jadi 1 kolom ke bawah kalau di HP */
+    }
+}
 
   .analytics-showcase-box {
     background: var(--card);
@@ -940,6 +954,34 @@
         </div>
       </div>
     </div>
+
+    <div class="karya-card">
+      <div class="overlay-top"><div class="views">XXX views</div></div>
+      <video src="assets/vid5.mp4" class="card-img" controls playsinline preload="metadata"></video>
+      <div class="overlay-bottom"><div class="cap">Judul atau caption video kelima...</div></div>
+    </div>
+
+    <!-- Video 6 -->
+    <div class="karya-card">
+      <div class="overlay-top"><div class="views">XXX views</div></div>
+      <video src="assets/vid6.mp4" class="card-img" controls playsinline preload="metadata"></video>
+      <div class="overlay-bottom"><div class="cap">Judul atau caption video keenam...</div></div>
+    </div>
+
+    <!-- Video 7 -->
+    <div class="karya-card">
+      <div class="overlay-top"><div class="views">XXX views</div></div>
+      <video src="assets/vid7.mp4" class="card-img" controls playsinline preload="metadata"></video>
+      <div class="overlay-bottom"><div class="cap">Judul atau caption video ketujuh...</div></div>
+    </div>
+
+    <!-- Video 8 -->
+    <div class="karya-card">
+      <div class="overlay-top"><div class="views">XXX views</div></div>
+      <video src="assets/vid8.mp4" class="card-img" controls playsinline preload="metadata"></video>
+      <div class="overlay-bottom"><div class="cap">Judul atau caption video kedelapan...</div></div>
+    </div>
+</div>
 
   </div>
 </section>
