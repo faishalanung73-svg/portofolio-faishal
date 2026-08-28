@@ -528,45 +528,73 @@
     gap: 40px;
 }
 
-/* Bagian Mockup Dua HP */
-.phones-wrapper {
-    display: flex;
-    position: relative;
-    gap: 20px;
+.portfolio-mockup-section {
+    padding: 60px 20px;
+    background-color: #fdfbf7;
+    font-family: 'Courier New', Courier, monospace;
 }
 
+.mockup-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+/* Container Dua HP Berdampingan */
+.phones-wrapper {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+/* Style Bodi iPhone 16 (Dynamic Island & Bezel Tipis) */
 .phone-mockup {
-    width: 240px;
-    background: #000;
-    border-radius: 35px;
+    width: 250px;
+    background: #111;
+    border-radius: 42px;
     padding: 12px;
-    box-shadow: 8px 8px 0px #000; /* Gaya neo-brutalist shadow */
+    box-shadow: 8px 8px 0px #000;
     border: 3px solid #000;
-    transform: rotate(-3deg);
+    position: relative;
+    transform: rotate(-2deg);
     transition: transform 0.3s ease;
 }
 
-.phone-mockup:hover {
-    transform: rotate(0deg) scale(1.02);
-    z-index: 10;
-}
-
 .phone-mockup.right {
-    transform: rotate(4deg);
-    margin-top: 30px;
+    transform: rotate(3deg);
+    margin-top: 40px; /* Efek staggered / naik-turun dikit biar dinamis */
 }
 
-.phone-mockup.right:hover {
+.phone-mockup:hover, .phone-mockup.right:hover {
     transform: rotate(0deg) scale(1.02);
     z-index: 10;
 }
 
+/* Layar HP */
 .phone-screen {
     width: 100%;
     background: #fff;
-    border-radius: 26px;
+    border-radius: 32px;
     overflow: hidden;
-    aspect-ratio: 9/19;
+    aspect-ratio: 9/19.5;
+    position: relative;
+}
+
+/* Dynamic Island Khas iPhone 16 */
+.dynamic-island {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85px;
+    height: 24px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 20;
 }
 
 .phone-screen img {
@@ -575,32 +603,31 @@
     object-fit: cover;
 }
 
-/* Bagian Catatan / Notepad di Kanan */
+/* Kotak Catatan / Notepad di Samping */
 .notepad {
     background: #fff;
     border: 3px solid #000;
     box-shadow: 10px 10px 0px #000;
     padding: 35px;
-    max-width: 480px;
+    max-width: 520px;
     border-radius: 8px;
     position: relative;
 }
 
-/* Efek lubang spiral binder di atas notepad */
+/* Efek Spiral Binder di Samping / Atas Notepad */
 .notepad::before {
     content: "";
     position: absolute;
     top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 40px;
     width: 60px;
     height: 15px;
     background: repeating-linear-gradient(90deg, #000, #000 6px, transparent 6px, transparent 12px);
 }
 
 .notepad h3 {
-    font-size: 1.2rem;
-    color: #e6005c; /* Warna aksen pink/magenta khas lu */
+    font-size: 1.15rem;
+    color: #e6005c;
     margin-bottom: 15px;
     font-weight: bold;
 }
@@ -612,7 +639,7 @@
 
 .notepad li {
     margin-bottom: 12px;
-    font-size: 0.95rem;
+    font-size: 0.93rem;
     line-height: 1.5;
     color: #111;
 }
@@ -621,14 +648,12 @@
     color: #000;
 }
 
-/* Responsif HP biar aman di layar kecil */
-@media (max-width: 768px) {
-    .phones-wrapper {
+/* Responsif untuk layar HP kecil */
+@media (max-width: 900px) {
+    .mockup-container {
         flex-direction: column;
-        align-items: center;
     }
-    .phone-mockup, .phone-mockup.right {
-        transform: rotate(0deg);
+    .phone-mockup.right {
         margin-top: 0;
     }
 }
@@ -844,26 +869,28 @@
       </div>
 
 
-            <section class="portfolio-mockup-section" id="karya-projek">
+           <section class="portfolio-mockup-section" id="karya-projek">
     <div class="mockup-container">
         
-        <!-- SISI KIRI: Mockup 2 HP (Ganti link gambar screenshot TikTok/Ig lu di src) -->
+        <!-- SISI KIRI: Mockup 2 iPhone 16 Berdampingan -->
         <div class="phones-wrapper">
+            <!-- HP Pertama -->
             <div class="phone-mockup">
                 <div class="phone-screen">
-                    <!-- Masukin screenshot profil/insight TikTok lu di sini -->
+                    <div class="dynamic-island"></div>
                     <img src="assets/screenshot-tiktok-1.png" alt="TikTok Profile Mockup">
                 </div>
             </div>
+            <!-- HP Kedua -->
             <div class="phone-mockup right">
                 <div class="phone-screen">
-                    <!-- Masukin screenshot video/feed lu di sini -->
+                    <div class="dynamic-island"></div>
                     <img src="assets/screenshot-tiktok-2.png" alt="TikTok Content Mockup">
                 </div>
             </div>
         </div>
 
-        <!-- SISI KANAN: Catatan Job Desc / What I Can Do For You -->
+        <!-- SISI KANAN: Catatan What I Can Do For You -->
         <div class="notepad">
             <h3>As a Content Creator & Digital Marketer, I was responsible to:</h3>
             <ul>
