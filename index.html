@@ -348,36 +348,9 @@
   }
 
   /* ---------- TOOLS & MOCKUP STYLING ---------- */
-  .tool-logo {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    border-radius: 6px;
-  }
-
-  .tool-item {
-    background: var(--card);
-    border: 3px solid var(--border);
-    padding: 12px 16px;
-    border-radius: 12px;
-    font-family: 'Space Mono', monospace;
-    font-size: 14px;
-    font-weight: 700;
-    box-shadow: 4px 4px 0px var(--border);
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    transition: transform 0.2s ease;
-  }
-
-  .tool-item:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px var(--border);
-  }
-
   .portfolio-mockup-section {
-    padding: 60px 20px;
-    background-color: #fdfbf7;
+    padding: 40px 0;
+    background: transparent;
   }
 
   .mockup-container {
@@ -388,7 +361,6 @@
     justify-content: center;
     gap: 40px;
     flex-wrap: nowrap;
-    margin-top: 40px; /* Bikin jarak aman bagian analisis dari elemen atasnya */
   }
 
   .phones-wrapper {
@@ -456,7 +428,6 @@
     max-width: 500px;
     border-radius: 8px;
     position: relative;
-    margin-top: 20px; /* Menjaga teks analisis ga mepet ke atas */
   }
 
   .notepad::before {
@@ -492,13 +463,76 @@
     color: #000;
   }
 
+  /* ---------- ANALYTICS SHOWCASE ---------- */
+  .analytics-showcase-box {
+    background: var(--card);
+    border: 3px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px;
+    box-shadow: var(--shadow-lg);
+    margin-top: 40px;
+  }
+  .analytics-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .analytics-text-side h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .analytics-text-side p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .analytics-bullet-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .analytics-bullet-list li {
+    padding-left: 20px;
+    position: relative;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .analytics-bullet-list li::before {
+    content: "⚡";
+    position: absolute;
+    left: 0;
+    font-size: 12px;
+  }
+  .analytics-img-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .analytic-img-card {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 2px 0px var(--border);
+  }
+  .analytic-img-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
   @media (max-width: 900px) {
-    .mockup-container {
-        flex-wrap: wrap;
-    }
-    .phone-mockup.right {
-        margin-top: 0;
-    }
+    .mockup-container { flex-wrap: wrap; }
+    .phone-mockup.right { margin-top: 0; }
+    .analytics-grid-layout { grid-template-columns: 1fr; }
   }
 
   footer{
@@ -508,21 +542,12 @@
 </style>
 </head>
 <body>
-  <!-- Isi web lu tetap lanjut di sini -->
-</head>
-<body>
 
 <header>
   <nav>
     <a href="/" class="logo-link" style="text-decoration: none; display: flex; align-items: center;">
-    <img src="assets/favicon.png" alt="Faishal Anung Logo" style="height: 45px; width: auto; object-fit: contain; transition: filter 0.3s ease;">
-    <!-- Optional: Tambah efek hover biar makin kece -->
-    <style>
-        .logo-link:hover img {
-            filter: drop-shadow(0px 0px 8px rgba(255, 215, 0, 0.7));
-        }
-    </style>
-</a>
+      <img src="assets/favicon.png" alt="Faishal Anung Logo" style="height: 45px; width: auto; object-fit: contain; transition: filter 0.3s ease;">
+    </a>
     <div class="nav-links">
       <a href="#tentang">Tentang</a>
       <a href="#pengalaman">Pengalaman</a>
@@ -575,15 +600,12 @@
         <h2>Profil</h2>
       </div>
       <div class="about-grid">
-        <!-- Logo Card -->
         <div class="brand-logo-box">
           <div class="logo-card">
             <img src="assets/logo.jpeg" alt="Logo Thinkeverythink1" class="brand-logo-img">
             <div class="logo-caption">MEDIA SOSIAL</div>
           </div>
         </div>
-
-        <!-- Profil Text -->
         <div class="about-text">
           <p>Saya mahasiswa <strong>Bisnis Digital semester 5</strong> di Universitas Muhammadiyah Purwokerto yang aktif mendalami produksi konten, penulisan naskah, dan strategi pertumbuhan platform media sosial.</p>
           <p>Pendekatan kerja saya berbasis riset data dan pemahaman tren audiens, bukan sekadar mengikuti format viral yang instan.</p>
@@ -637,8 +659,7 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <!-- TOOLS & SOFTWARE -->
+  <!-- SKILLS & TOOLS -->
   <section id="skill">
     <div class="wrap">
       <div class="section-head">
@@ -646,7 +667,6 @@
         <h2>Skill & Tools</h2>
       </div>
       
-      <!-- Skill Pills (Gaya Lama tapi bersih) -->
       <div class="skill-cloud" style="margin-bottom: 48px;">
         <span class="skill-pill core">Digital Marketing</span>
         <span class="skill-pill core">Content Strategy</span>
@@ -659,162 +679,128 @@
         <span class="skill-pill">Teamwork</span>
       </div>
 
-      <!-- TOOLS & SOFTWARE BARU (Panggil dari lokal assets/) -->
-<div style="background: var(--card); border: 3px solid var(--border); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow-lg);">
-    <div style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; color: var(--ink); display: flex; align-items: center; gap: 8px;">
-        <span>⚡</span> Tools & Software Sehari-hari:
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px;">
-        
-        <!-- CapCut -->
-        <div style="background: var(--bg); border: 2px solid var(--border); padding: 8px 12px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
-            <img src="assets/cc.png" alt="CapCut" style="width: 28px; height: 28px; object-fit: contain;">
-            <span>CapCut</span>
+      <div style="background: var(--card); border: 3px solid var(--border); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow-lg);">
+        <div style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; color: var(--ink); display: flex; align-items: center; gap: 8px;">
+            <span>⚡</span> Tools & Software Sehari-hari:
         </div>
-
-        <!-- Canva -->
-        <div style="background: var(--bg); border: 2px solid var(--border); padding: 8px 12px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
-            <img src="assets/canva.png" alt="Canva" style="width: 28px; height: 28px; object-fit: contain;">
-            <span>Canva</span>
-        </div>
-
-        <!-- Figma -->
-        <div style="background: var(--bg); border: 2px solid var(--border); padding: 8px 12px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
-            <img src="assets/fig-removebg-preview.png" alt="Figma" style="width: 28px; height: 28px; object-fit: contain;">
-            <span>Figma</span>
-        </div>
-
-        <!-- Notion -->
-        <div style="background: var(--bg); border: 2px solid var(--border); padding: 8px 12px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
-            <img src="assets/noti.png" alt="Notion" style="width: 28px; height: 28px; object-fit: contain;">
-            <span>Notion</span>
-        </div>
-
-        <!-- VS Code -->
-        <div style="background: var(--bg); border: 2px solid var(--border); padding: 8px 12px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
-            <img src="assets/vs.png" alt="VS Code" style="width: 28px; height: 28px; object-fit: contain;">
-            <span>VS Code</span>
-        </div>
-
-        <!-- MySQL -->
-        <div style="background: var(--bg); border: 2px solid var(--border); padding: 8px 12px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
-            <img src="assets/sql.png" alt="MySQL" style="width: 28px; height: 28px; object-fit: contain;">
-            <span>MySQL</span>
-        </div>
-
-        <!-- TikTok Studio -->
-        <div style="background: var(--bg); border: 2px solid var(--border); padding: 8px 12px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
-            <img src="assets/tts.webp" alt="TikTok Studio" style="width: 28px; height: 28px; object-fit: contain;">
-            <span>TikTok Studio</span>
-        </div>
-
-    </div>
-</div>
-
-      <!-- PORTFOLIO -->
-<section id="karya" style="padding: 120px 0 60px 0;">
-  <div class="wrap" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-    
-    <!-- Header Section Utama -->
-    <div class="section-head" style="margin-bottom: 40px;">
-      <span class="section-label">PORTFOLIO</span>
-      <h2 style="font-size: 2.5rem; margin-top: 5px;">PROJEK & PENCAPAIAN</h2>
-    </div>
-
-    <!-- Mockup & Job Desc Section -->
-    <section class="portfolio-mockup-section" style="padding: 0 0 50px 0; background: transparent;">
-      <div class="mockup-container" style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: nowrap;">
-        
-        <!-- SISI KIRI: Mockup 2 iPhone 16 Berdampingan -->
-        <div class="phones-wrapper" style="display: flex; gap: 15px; align-items: center; flex-shrink: 0;">
-          <!-- HP Pertama -->
-          <div class="phone-mockup">
-            <div class="phone-screen">
-              <div class="dynamic-island"></div>
-              <img src="assets/mok1 (1).jpeg" alt="TikTok Profile Mockup">
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px;">
+            <div style="background: var(--bg); border: 2px solid var(--border); padding: 8px 12px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
+                <img src="assets/cc.png" alt="CapCut" style="width: 28px; height: 28px; object-fit: contain;">
+                <span>CapCut</span>
             </div>
-          </div>
-          <!-- HP Kedua -->
-          <div class="phone-mockup right">
-            <div class="phone-screen">
-              <div class="dynamic-island"></div>
-              <img src="assets/mok1 (2).jpeg" alt="TikTok Content Mockup">
+            <div style="background: var(--bg); border: 2px solid var(--border); padding: 8px 12px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
+                <img src="assets/canva.png" alt="Canva" style="width: 28px; height: 28px; object-fit: contain;">
+                <span>Canva</span>
             </div>
-          </div>
+            <div style="background: var(--bg); border: 2px solid var(--border); padding: 8px 12px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
+                <img src="assets/fig-removebg-preview.png" alt="Figma" style="width: 28px; height: 28px; object-fit: contain;">
+                <span>Figma</span>
+            </div>
+            <div style="background: var(--bg); border: 2px solid var(--border); padding: 8px 12px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
+                <img src="assets/noti.png" alt="Notion" style="width: 28px; height: 28px; object-fit: contain;">
+                <span>Notion</span>
+            </div>
+            <div style="background: var(--bg); border: 2px solid var(--border); padding: 8px 12px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
+                <img src="assets/vs.png" alt="VS Code" style="width: 28px; height: 28px; object-fit: contain;">
+                <span>VS Code</span>
+            </div>
+            <div style="background: var(--bg); border: 2px solid var(--border); padding: 8px 12px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
+                <img src="assets/sql.png" alt="MySQL" style="width: 28px; height: 28px; object-fit: contain;">
+                <span>MySQL</span>
+            </div>
+            <div style="background: var(--bg); border: 2px solid var(--border); padding: 8px 12px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; box-shadow: 2px 2px 0px var(--border); display: flex; align-items: center; gap: 10px;">
+                <img src="assets/tts.webp" alt="TikTok Studio" style="width: 28px; height: 28px; object-fit: contain;">
+                <span>TikTok Studio</span>
+            </div>
         </div>
-
-        <!-- SISI KANAN: Catatan What I Can Do For You (Lebih Detail & Rapi) -->
-        <div class="notepad">
-          <span style="background: #e6005c; color: #fff; padding: 4px 10px; font-size: 0.8rem; font-weight: bold; border: 2px solid #000; display: inline-block; margin-bottom: 10px;">WHAT I CAN DO FOR YOU</span>
-          <h3>As a Content Creator & Digital Marketer, I specialize in:</h3>
-          <ul>
-            <li><strong>Content Strategy & Research:</strong> Mengembangkan riset tren audiens mendalam dan menyusun perencanaan konten berbasis data untuk mendongkrak jangkauan organik.</li>
-            <li><strong>Scriptwriting & Hook Mastery:</strong> Menulis naskah video yang *engaging*, berbasis *strong hook*, dan terstruktur optimal untuk platform short-form seperti TikTok & Reels.</li>
-            <li><strong>Video Production & Editing:</strong> Mengelola seluruh produksi visual dari tahap pengambilan gambar hingga editing akhir dengan ritme dinamis khas kreator modern.</li>
-            <li><strong>Growth & Analytics:</strong> Terbukti sukses merintis, mengelola, dan mengoptimalkan performa channel hingga menembus pencapaian <strong>16,3K Followers</strong> dan <strong>3,2 Juta Likes</strong>.</li>
-          </ul>
-        </div>
-
       </div>
-    </section>
-      
-    <!-- Header Sub-Section Video -->
-    <div style="margin: 50px 0 30px 0; border-top: 3px solid #000; padding-top: 40px;">
-      <span class="section-label">SHOWCASE</span>
-      <h2 style="font-size: 2rem;">FEATURED VIDEO CREATION</h2>
     </div>
+  </section>
 
-<div class="karya-grid">
-        <!-- Video 1 -->
+  <!-- PORTFOLIO -->
+  <section id="karya">
+    <div class="wrap">
+      
+      <div class="section-head" style="margin-bottom: 40px;">
+        <span class="section-label">PORTFOLIO</span>
+        <h2 style="font-size: 2.5rem; margin-top: 5px;">PROJEK & PENCAPAIAN</h2>
+      </div>
+
+      <!-- Mockup & Job Desc Section -->
+      <div class="portfolio-mockup-section">
+        <div class="mockup-container">
+          
+          <div class="phones-wrapper">
+            <div class="phone-mockup">
+              <div class="phone-screen">
+                <div class="dynamic-island"></div>
+                <img src="assets/mok1 (1).jpeg" alt="TikTok Profile Mockup">
+              </div>
+            </div>
+            <div class="phone-mockup right">
+              <div class="phone-screen">
+                <div class="dynamic-island"></div>
+                <img src="assets/mok1 (2).jpeg" alt="TikTok Content Mockup">
+              </div>
+            </div>
+          </div>
+
+          <div class="notepad">
+            <span style="background: #e6005c; color: #fff; padding: 4px 10px; font-size: 0.8rem; font-weight: bold; border: 2px solid #000; display: inline-block; margin-bottom: 10px;">WHAT I CAN DO FOR YOU</span>
+            <h3>As a Content Creator & Digital Marketer, I specialize in:</h3>
+            <ul>
+              <li><strong>Content Strategy & Research:</strong> Mengembangkan riset tren audiens mendalam dan menyusun perencanaan konten berbasis data untuk mendongkrak jangkauan organik.</li>
+              <li><strong>Scriptwriting & Hook Mastery:</strong> Menulis naskah video yang *engaging*, berbasis *strong hook*, dan terstruktur optimal untuk platform short-form seperti TikTok & Reels.</li>
+              <li><strong>Video Production & Editing:</strong> Mengelola seluruh produksi visual dari tahap pengambilan gambar hingga editing akhir dengan ritme dinamis khas kreator modern.</li>
+              <li><strong>Growth & Analytics:</strong> Terbukti sukses merintis, mengelola, dan mengoptimalkan performa channel hingga menembus pencapaian <strong>16,3K Followers</strong> dan <strong>3,2 Juta Likes</strong>.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+        
+      <!-- Showcase Video Header -->
+      <div style="margin: 50px 0 30px 0; border-top: 3px solid #000; padding-top: 40px;">
+        <span class="section-label">SHOWCASE</span>
+        <h2 style="font-size: 2rem;">FEATURED VIDEO CREATION</h2>
+      </div>
+
+      <div class="karya-grid">
         <div class="karya-card">
           <div class="overlay-top"><div class="views">128K views</div></div>
           <video src="assets/vid1.mp4" class="card-img" controls playsinline preload="metadata"></video>
           <div class="overlay-bottom"><div class="cap">lagu ini adalah harapan yang dinyanyikan bersama. 🏟️🎵</div></div>
         </div>
-
-        <!-- Video 2 -->
         <div class="karya-card">
           <div class="overlay-top"><div class="views">518K views</div></div>
           <video src="assets/vid2.mp4" class="card-img" controls playsinline preload="metadata"></video>
           <div class="overlay-bottom"><div class="cap">Make a better place. For you and for me. 🕊️</div></div>
         </div>
-
-        <!-- Video 3 -->
         <div class="karya-card">
           <div class="overlay-top"><div class="views">1,1JT views</div></div>
           <video src="assets/vid3.mp4" class="card-img" controls playsinline preload="metadata"></video>
           <div class="overlay-bottom"><div class="cap">BACKSTREET BOYS ternyata bukan nama random 😭</div></div>
         </div>
-
-        <!-- Video 4 -->
         <div class="karya-card">
           <div class="overlay-top"><div class="views">198K views</div></div>
           <video src="assets/vid4.mp4" class="card-img" controls playsinline preload="metadata"></video>
           <div class="overlay-bottom"><div class="cap">Kadang nama paling ikonik... justru datang dari hal yang paling sederhana. 🎶</div></div>
         </div>
-
-        <!-- Video 5 -->
         <div class="karya-card">
           <div class="overlay-top"><div class="views">XXX views</div></div>
           <video src="assets/vid5.mp4" class="card-img" controls playsinline preload="metadata"></video>
           <div class="overlay-bottom"><div class="cap">Judul atau caption video kelima...</div></div>
         </div>
-
-        <!-- Video 6 -->
         <div class="karya-card">
           <div class="overlay-top"><div class="views">XXX views</div></div>
           <video src="assets/vid6.mp4" class="card-img" controls playsinline preload="metadata"></video>
           <div class="overlay-bottom"><div class="cap">Judul atau caption video keenam...</div></div>
         </div>
-
-        <!-- Video 7 -->
         <div class="karya-card">
           <div class="overlay-top"><div class="views">XXX views</div></div>
           <video src="assets/vid7.mp4" class="card-img" controls playsinline preload="metadata"></video>
           <div class="overlay-bottom"><div class="cap">Judul atau caption video ketujuh...</div></div>
         </div>
-
-        <!-- Video 8 -->
         <div class="karya-card">
           <div class="overlay-top"><div class="views">XXX views</div></div>
           <video src="assets/vid8.mp4" class="card-img" controls playsinline preload="metadata"></video>
@@ -822,8 +808,7 @@
         </div>
       </div>
 
-    </div>
-  </section>
+      <!-- Analisis Performa TikTok (Sudah dirapikan masuk ke dalam section karya) -->
       <div class="analytics-showcase-box">
         <div class="analytics-grid-layout">
           <div class="analytics-text-side">
@@ -835,7 +820,6 @@
               <li>Konsisten menjangkau ribuan audiens dengan topik yang relevan dan up-to-date.</li>
             </ul>
           </div>
-
           <div class="analytics-img-grid">
             <div class="analytic-img-card"><img src="assets/analisis1.jpeg" alt="Analisis 1"></div>
             <div class="analytic-img-card"><img src="assets/analisis2.jpeg" alt="Analisis 2"></div>
@@ -845,52 +829,40 @@
         </div>
       </div>
 
-
-
-<!-- PROJECT: INSIDE FOOTBALL -->
-          <div style="background: var(--card); border: 4px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-lg); overflow: hidden; display: grid; grid-template-columns: 1.1fr 0.9fr;" class="project-card-grid">
-            
-            <!-- Kolom Teks -->
-            <div style="padding: 36px; display: flex; flex-direction: column; justify-content: center;">
-              <span style="display: inline-block; background: var(--bg); border: 2px solid var(--border); padding: 4px 10px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 800; width: fit-content; box-shadow: 2px 2px 0px var(--border); margin-bottom: 16px;">
-                WEB PROJECT
-              </span>
-              <h3 style="font-size: clamp(22px, 3vw, 28px); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 12px; color: var(--ink);">
-                INSIDE FOOTBALL COMMUNITY
-              </h3>
-              <p style="font-size: 15px; color: #555; line-height: 1.6; margin-bottom: 24px;">
-                Website komunitas pecinta sepak bola yang saya bangun dan kelola sendiri — mulai dari identitas visual, struktur layout, hingga manajemen konten.
-              </p>
-              <a href="https://insidefootballfc.com" target="_blank" style="text-decoration: none; background: #000; color: var(--accent); border: 2px solid var(--border); padding: 12px 20px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; width: fit-content; box-shadow: 3px 3px 0px var(--border);">
-                <span>insidefootballfc.com</span>
-                <span>→</span>
-              </a>
-            </div>
-
-            <!-- Kolom Screenshot (Full Utuh Tidak Terpotong) -->
-            <div style="background: var(--accent); border-left: 4px solid var(--border); display: flex; align-items: center; justify-content: center; padding: 24px; overflow: hidden;">
-              <img src="assets/inside.png" alt="Inside Football Preview" style="width: 100%; height: auto; max-height: 100%; object-fit: contain; border-radius: 8px; border: 2px solid var(--border); box-shadow: 4px 4px 0px var(--border);">
-            </div>
-
-          </div>
-      
+      <!-- Project Inside Football -->
+      <div style="background: var(--card); border: 4px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-lg); overflow: hidden; display: grid; grid-template-columns: 1.1fr 0.9fr; margin-top: 40px;" class="project-card-grid">
+        <div style="padding: 36px; display: flex; flex-direction: column; justify-content: center;">
+          <span style="display: inline-block; background: var(--bg); border: 2px solid var(--border); padding: 4px 10px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 800; width: fit-content; box-shadow: 2px 2px 0px var(--border); margin-bottom: 16px;">
+            WEB PROJECT
+          </span>
+          <h3 style="font-size: clamp(22px, 3vw, 28px); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 12px; color: var(--ink);">
+            INSIDE FOOTBALL COMMUNITY
+          </h3>
+          <p style="font-size: 15px; color: #555; line-height: 1.6; margin-bottom: 24px;">
+            Website komunitas pecinta sepak bola yang saya bangun dan kelola sendiri — mulai dari identitas visual, struktur layout, hingga manajemen konten.
+          </p>
+          <a href="https://insidefootballfc.com" target="_blank" style="text-decoration: none; background: #000; color: var(--accent); border: 2px solid var(--border); padding: 12px 20px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; width: fit-content; box-shadow: 3px 3px 0px var(--border);">
+            <span>insidefootballfc.com</span>
+            <span>→</span>
+          </a>
+        </div>
+        <div style="background: var(--accent); border-left: 4px solid var(--border); display: flex; align-items: center; justify-content: center; padding: 24px; overflow: hidden;">
+          <img src="assets/inside.png" alt="Inside Football Preview" style="width: 100%; height: auto; max-height: 100%; object-fit: contain; border-radius: 8px; border: 2px solid var(--border); box-shadow: 4px 4px 0px var(--border);">
+        </div>
+      </div>
       
     </div>
   </section>
 
-<!-- LATAR BELAKANG AKADEMIK -->
+  <!-- LATAR BELAKANG AKADEMIK -->
   <section id="pendidikan">
     <div class="wrap">
       <div style="background: var(--card); border: 4px solid var(--border); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow-lg);">
-        
         <div style="margin-bottom: 28px;">
           <span class="section-label" style="margin-bottom: 12px; display: inline-block;">PENDIDIKAN</span>
           <h2 style="font-size: clamp(28px, 4vw, 40px); line-height: 1.1; letter-spacing: -1px;">LATAR BELAKANG AKADEMIK</h2>
         </div>
-
         <div style="display: flex; flex-direction: column; gap: 24px;">
-          
-          <!-- Universitas -->
           <div style="display: flex; flex-direction: column; gap: 10px; padding-bottom: 20px; border-bottom: 2px dashed var(--border);">
             <div style="display: inline-block; background: var(--accent); border: 2px solid var(--border); padding: 4px 12px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 800; width: fit-content; box-shadow: 2px 2px 0px var(--border);">
               2024 — Sekarang
@@ -900,8 +872,6 @@
               <div style="font-size: 14px; color: #555;">S1 Bisnis Digital, Fakultas Ekonomi dan Bisnis — Semester 5</div>
             </div>
           </div>
-
-          <!-- SMA -->
           <div style="display: flex; flex-direction: column; gap: 10px; padding-bottom: 20px; border-bottom: 2px dashed var(--border);">
             <div style="display: inline-block; background: var(--bg); border: 2px solid var(--border); padding: 4px 12px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 800; width: fit-content; box-shadow: 2px 2px 0px var(--border);">
               2021 — 2024
@@ -911,8 +881,6 @@
               <div style="font-size: 14px; color: #555;">Jurusan IPA</div>
             </div>
           </div>
-
-          <!-- SMP -->
           <div style="display: flex; flex-direction: column; gap: 10px; padding-bottom: 20px; border-bottom: 2px dashed var(--border);">
             <div style="display: inline-block; background: var(--bg); border: 2px solid var(--border); padding: 4px 12px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 800; width: fit-content; box-shadow: 2px 2px 0px var(--border);">
               2019 — 2021
@@ -921,8 +889,6 @@
               <div style="font-family: 'Space Mono', monospace; font-size: 16px; font-weight: 800; color: var(--ink); margin-bottom: 4px;">SMP ITUS JALAKSANA</div>
             </div>
           </div>
-
-          <!-- SD -->
           <div style="display: flex; flex-direction: column; gap: 10px;">
             <div style="display: inline-block; background: var(--bg); border: 2px solid var(--border); padding: 4px 12px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 800; width: fit-content; box-shadow: 2px 2px 0px var(--border);">
               2012 — 2018
@@ -931,19 +897,15 @@
               <div style="font-family: 'Space Mono', monospace; font-size: 16px; font-weight: 800; color: var(--ink); margin-bottom: 4px;">SDN KARANGDEMPEL 1</div>
             </div>
           </div>
-
         </div>
-
       </div>
     </div>
   </section>
 
-<!-- KONTAK -->
+  <!-- KONTAK -->
   <section id="kontak">
     <div class="wrap">
       <div class="contact-box" style="background: var(--card); border: 4px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-lg);">
-        
-        <!-- Bagian Judul -->
         <div style="margin-bottom: 30px; text-align: left;">
           <span class="section-label" style="margin-bottom: 12px; display: inline-block;">KONTAK</span>
           <h2 style="font-size: clamp(28px, 6vw, 42px); line-height: 1.1; margin-bottom: 12px; letter-spacing: -1px;">MARI KOLABORASI</h2>
@@ -951,11 +913,7 @@
             Terbuka untuk kerja sama konten, campaign digital marketing, atau proyek kreatif lainnya.
           </p>
         </div>
-
-        <!-- Daftar Tombol Kontak (Tersusun ke bawah rapi di HP & PC) -->
         <div style="display: flex; flex-direction: column; gap: 14px;">
-          
-          <!-- WhatsApp -->
           <a href="https://wa.me/6282328257523" target="_blank" style="text-decoration: none; color: inherit; background: var(--bg); border: 3px solid var(--border); padding: 16px 20px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; box-shadow: 3px 3px 0px var(--border);">
             <div style="overflow: hidden;">
               <div style="font-family: 'Space Mono', monospace; font-size: 11px; text-transform: uppercase; color: #666; font-weight: 700; margin-bottom: 2px;">WhatsApp</div>
@@ -963,8 +921,6 @@
             </div>
             <div style="background: var(--accent); border: 2px solid var(--border); width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0;">→</div>
           </a>
-
-          <!-- Email -->
           <a href="mailto:faishalanung73@gmail.com" style="text-decoration: none; color: inherit; background: var(--bg); border: 3px solid var(--border); padding: 16px 20px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; box-shadow: 3px 3px 0px var(--border);">
             <div style="overflow: hidden;">
               <div style="font-family: 'Space Mono', monospace; font-size: 11px; text-transform: uppercase; color: #666; font-weight: 700; margin-bottom: 2px;">Email</div>
@@ -972,8 +928,6 @@
             </div>
             <div style="background: var(--accent); border: 2px solid var(--border); width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0;">→</div>
           </a>
-
-          <!-- TikTok -->
           <a href="https://tiktok.com/@thinkeverythink1" target="_blank" style="text-decoration: none; color: inherit; background: var(--bg); border: 3px solid var(--border); padding: 16px 20px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; box-shadow: 3px 3px 0px var(--border);">
             <div style="overflow: hidden;">
               <div style="font-family: 'Space Mono', monospace; font-size: 11px; text-transform: uppercase; color: #666; font-weight: 700; margin-bottom: 2px;">TikTok</div>
@@ -981,8 +935,6 @@
             </div>
             <div style="background: var(--accent); border: 2px solid var(--border); width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0;">→</div>
           </a>
-
-          <!-- Instagram -->
           <a href="https://instagram.com/fshl_ang" target="_blank" style="text-decoration: none; color: inherit; background: var(--bg); border: 3px solid var(--border); padding: 16px 20px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; box-shadow: 3px 3px 0px var(--border);">
             <div style="overflow: hidden;">
               <div style="font-family: 'Space Mono', monospace; font-size: 11px; text-transform: uppercase; color: #666; font-weight: 700; margin-bottom: 2px;">Instagram</div>
@@ -990,8 +942,6 @@
             </div>
             <div style="background: var(--accent); border: 2px solid var(--border); width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0;">→</div>
           </a>
-
-          <!-- YouTube -->
           <a href="https://youtube.com/@thinkeverythink" target="_blank" style="text-decoration: none; color: inherit; background: var(--bg); border: 3px solid var(--border); padding: 16px 20px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; box-shadow: 3px 3px 0px var(--border);">
             <div style="overflow: hidden;">
               <div style="font-family: 'Space Mono', monospace; font-size: 11px; text-transform: uppercase; color: #666; font-weight: 700; margin-bottom: 2px;">YouTube</div>
@@ -999,9 +949,7 @@
             </div>
             <div style="background: var(--accent); border: 2px solid var(--border); width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0;">→</div>
           </a>
-
         </div>
-
       </div>
     </div>
   </section>
@@ -1011,7 +959,6 @@
   © 2026 FAISHAL ANUNG
 </footer>
 
-<!-- Script khusus untuk mengunci orientasi video agar tetap Portrait (tegak) saat Fullscreen -->
 <script>
   document.querySelectorAll('video').forEach(video => {
     video.addEventListener('fullscreenchange', () => {
