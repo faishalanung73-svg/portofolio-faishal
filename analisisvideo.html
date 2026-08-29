@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Dive Analisis TikTok — Faishal Anung</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #FFFDF5;
+      --card: #FFFFFF;
+      --ink: #0D0D0D;
+      --accent: #CCFF00;
+      --accent-pink: #FF3366;
+      --accent-blue: #0066FF;
+      --border: #0D0D0D;
+      --shadow: 4px 4px 0px #0D0D0D;
+      --shadow-lg: 6px 6px 0px #0D0D0D;
+      --radius: 12px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      background:var(--bg);
+      color:var(--ink);
+      font-family:'Space Grotesk', sans-serif;
+      padding: 40px 20px 80px;
+    }
+    .wrap{max-width:1000px;margin:0 auto;}
+    
+    /* Back Button */
+    .back-btn{
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--card); color:var(--ink); padding:10px 18px; border-radius:8px;
+      font-weight:700; font-size:14px; font-family:'Space Mono', monospace;
+      border:2px solid var(--border); box-shadow:var(--shadow);
+      text-decoration:none; margin-bottom:30px;
+      transition:all .15s ease;
+    }
+    .back-btn:hover{transform:translate(-2px,-2px); box-shadow:6px 6px 0px var(--border); background:var(--accent);}
+
+    /* Header Banner */
+    .page-header{
+      background:var(--card);
+      border:3px solid var(--border);
+      border-radius:var(--radius);
+      padding:40px;
+      box-shadow:var(--shadow-lg);
+      margin-bottom:40px;
+      background: radial-gradient(circle at 90% 20%, rgba(204, 255, 0, 0.25) 0%, transparent 40%);
+    }
+    .eyebrow{
+      display:inline-block;
+      font-family:'Space Mono', monospace; font-size:12px; font-weight:700;
+      background:var(--accent-pink); color:#FFF; padding:4px 10px; border-radius:4px;
+      border:2px solid var(--border); box-shadow:2px 2px 0px var(--border);
+      text-transform:uppercase; margin-bottom:14px;
+    }
+    h1{
+      font-family:'Plus Jakarta Sans', sans-serif; text-transform:uppercase;
+      font-size:clamp(32px, 4.5vw, 48px); line-height:1.05; letter-spacing:-0.02em;
+      margin-bottom:14px;
+    }
+    .page-header p{font-size:17px; font-weight:500; color:#444; max-width:700px; line-height:1.6;}
+
+    /* Metric Grid */
+    .metrics-grid{
+      display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; margin-bottom:50px;
+    }
+    .metric-box{
+      background:var(--card); border:3px solid var(--border); border-radius:var(--radius);
+      padding:24px; box-shadow:var(--shadow);
+    }
+    .metric-box .label{font-family:'Space Mono', monospace; font-size:11px; text-transform:uppercase; color:#666; font-weight:700;}
+    .metric-box .val{font-family:'Plus Jakarta Sans', sans-serif; font-size:36px; font-weight:800; margin-top:8px;}
+
+    /* Section Title */
+    .section-title{
+      font-family:'Plus Jakarta Sans', sans-serif; text-transform:uppercase;
+      font-size:24px; font-weight:800; margin-bottom:24px; display:flex; align-items:center; gap:10px;
+    }
+
+    /* KARTU UTAMA LANDSCAPE */
+    .landscape-box {
+      background: var(--card);
+      border: 3px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 30px;
+    }
+
+    .landscape-box-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .landscape-box-title span.tag {
+      background: var(--accent);
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1.5px solid var(--border);
+      font-size: 11px;
+    }
+
+    .landscape-img-wrap {
+      width: 100%;
+      background: #000;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 2px 2px 0px var(--border);
+    }
+
+    .landscape-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Regular Grid Full Width */
+    .regular-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .regular-card {
+      background: var(--card);
+      border: 3px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .regular-img-wrap {
+      width: 100%;
+      background: #000;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 2px 2px 0px var(--border);
+    }
+
+    .regular-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* PORTRAIT GRID (Untuk 8 Foto: 2 Kolom x 4 Baris di Desktop) */
+    .portrait-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .portrait-card {
+      background: var(--card);
+      border: 3px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .portrait-img-wrap {
+      width: 100%;
+      background: #000;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 2px 2px 0px var(--border);
+    }
+
+    .portrait-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    @media(max-width: 768px){
+      .metrics-grid, .portrait-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <a href="index.html" class="back-btn">
+      <span>←</span> Kembali ke Beranda
+    </a>
+
+    <div class="page-header">
+      <span class="eyebrow">⚡ Deep Dive Analytics</span>
+      <h1>Analisis Performa TikTok Studio</h1>
+      <p>Dokumentasi lengkap metrik mendalam, grafik jangkauan organik, dan statistik interaksi pemirsa dari konten edukasi musik.</p>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-box">
+        <div class="label">Total Akumulasi Likes</div>
+        <div class="val" style="color: var(--accent-pink);">3,8 Juta+</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Pengikut Organik</div>
+        <div class="val" style="color: var(--accent-blue);">17.2K+</div>
+      </div>
+      <div class="metric-box">
+        <div class="label">Jangkauan Views</div>
+        <div class="val">34 Juta</div>
+      </div>
+    </div>
+
+    <div class="section-title">📊 Detail Tangkapan Layar Statistik (PC View)</div>
+    
+    <!-- KOTAK ATAS: 1 FOTO UTAMA LANDSCAPE -->
+    <div class="landscape-box">
+      <div class="landscape-box-title">
+        <span>Overview & Performa Akun Keseluruhan</span>
+        <span class="tag" style="background:var(--accent-pink); color:#FFF;">Statistik Utama</span>
+      </div>
+      <div class="landscape-img-wrap">
+        <img src="assets/1.png" alt="Analisis TikTok 1">
+      </div>
+    </div>
+
+    <!-- KOTAK DI BAWAHNYA (FULL WIDTH) -->
+    <div class="regular-grid">
+      <!-- Screenshot 2 -->
+      <div class="regular-card">
+        <div class="landscape-box-title">
+          <span>Detail Pengikut</span>
+          <span class="tag" style="background:var(--accent-pink); color:#FFF;">Metrik Konten</span>
+        </div>
+        <div class="regular-img-wrap">
+          <img src="assets/follower.png" alt="Analisis TikTok 2">
+        </div>
+      </div>
+
+      <!-- Screenshot 3 -->
+      <div class="regular-card">
+        <div class="landscape-box-title">
+          <span>Analisis Video & Retensi</span>
+          <span class="tag" style="background:var(--accent-pink); color:#FFF;">Engagement</span>
+        </div>
+        <div class="regular-img-wrap">
+          <img src="assets/viewers.png" alt="Analisis TikTok 3">
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 8 FOTO PORTRAIT DETAIL ANALISIS VIDEO -->
+    <div class="section-title" style="margin-top: 50px;">📱 Detail Analisis Hasil Video (Portrait View)</div>
+    
+    <div class="portrait-grid">
+      <!-- Kotak 1 -->
+      <div class="portrait-card">
+        <div class="landscape-box-title">
+          <span>Performa Video 1</span>
+          <span class="tag" style="background:var(--accent-blue); color:#FFF;">Insights</span>
+        </div>
+        <div class="portrait-img-wrap">
+          <img src="assets/analisis4.jpeg" alt="Detail Video 1">
+        </div>
+      </div>
+
+      <!-- Kotak 2 -->
+      <div class="portrait-card">
+        <div class="landscape-box-title">
+          <span>Performa Video 2</span>
+          <span class="tag" style="background:var(--accent-blue); color:#FFF;">Insights</span>
+        </div>
+        <div class="portrait-img-wrap">
+          <img src="assets/analisis2.jpeg" alt="Detail Video 2">
+        </div>
+      </div>
+
+      <!-- Kotak 3 -->
+      <div class="portrait-card">
+        <div class="landscape-box-title">
+          <span>Performa Video 3</span>
+          <span class="tag" style="background:var(--accent-blue); color:#FFF;">Insights</span>
+        </div>
+        <div class="portrait-img-wrap">
+          <img src="assets/analisis3.jpeg" alt="Detail Video 3">
+        </div>
+      </div>
+
+      <!-- Kotak 4 -->
+      <div class="portrait-card">
+        <div class="landscape-box-title">
+          <span>Performa Video 4</span>
+          <span class="tag" style="background:var(--accent-blue); color:#FFF;">Insights</span>
+        </div>
+        <div class="portrait-img-wrap">
+          <img src="assets/5.jpeg" alt="Detail Video 4">
+        </div>
+      </div>
+
+      <!-- Kotak 5 -->
+      <div class="portrait-card">
+        <div class="landscape-box-title">
+          <span>Performa Video 5</span>
+          <span class="tag" style="background:var(--accent-blue); color:#FFF;">Insights</span>
+        </div>
+        <div class="portrait-img-wrap">
+          <img src="assets/6.jpeg" alt="Detail Video 5">
+        </div>
+      </div>
+
+      <!-- Kotak 6 -->
+      <div class="portrait-card">
+        <div class="landscape-box-title">
+          <span>Performa Video 6</span>
+          <span class="tag" style="background:var(--accent-blue); color:#FFF;">Insights</span>
+        </div>
+        <div class="portrait-img-wrap">
+          <img src="assets/7.jpeg" alt="Detail Video 6">
+        </div>
+      </div>
+
+      <!-- Kotak 7 -->
+      <div class="portrait-card">
+        <div class="landscape-box-title">
+          <span>Performa Video 7</span>
+          <span class="tag" style="background:var(--accent-blue); color:#FFF;">Insights</span>
+        </div>
+        <div class="portrait-img-wrap">
+          <img src="assets/8.jpeg" alt="Detail Video 7">
+        </div>
+      </div>
+
+      <!-- Kotak 8 -->
+      <div class="portrait-card">
+        <div class="landscape-box-title">
+          <span>Performa Video 8</span>
+          <span class="tag" style="background:var(--accent-blue); color:#FFF;">Insights</span>
+        </div>
+        <div class="portrait-img-wrap">
+          <img src="assets/9.jpeg" alt="Detail Video 8">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
